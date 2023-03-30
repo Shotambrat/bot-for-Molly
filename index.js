@@ -1,21 +1,10 @@
 
 const TelegramApi = require('node-telegram-bot-api');
-// const Telegraf = require('telegraf');
 
 const token = '6254290808:AAFSrEUhshPj6Ud8vBj2GR1sa0uADNDDsX8';
 
 const bot = new TelegramApi(token, {polling: true});
 
-// function sendReminder() {
-//     bot.telegram.sendMessage(chatId, 'Напоминание: каждый час прошел.');
-// }
-  
-// setInterval(sendReminder, 20000)
-
-let chats = {
-    startId: ''
-};
-  
 bot.setMyCommands([
     {command: '/start', description:'Приветствие с моей любимой <3'}
 ])
@@ -28,18 +17,25 @@ const doit = () => {
         if (text === '/start') {
             await bot.sendSticker(chatId, 'https://tgram.ru/wiki/stickers/img/k_owka/gif/5.gif');
             await bot.sendMessage(chatId, "Привет моя Молличка <3");
-            chats.startId = chatId;
+            await reminderOfBot();
         } else {
-            await bot.sendMessage(chatId, `Ты написала мне ${text}`);
-            console.log(msg);
+            await bot.sendMessage(chatId, `Ты написала мне ${text}, бот еще не дороботан чтобы понять это слово, обратись к @El_Guseia`);
         }
+        console.log(msg);
+        console.log(chatId)
     });
 };
 
 doit ();
 
 function sendReminder() {
-    bot.sendMessage(chats.startId, "Я люблю тебя Молличка")
+    bot.sendMessage(5256030505, "Я люблю тебя Молличка")
 }
 
-setInterval(sendReminder, 3120000);
+function reminderOfBot() {
+    bot.sendMessage(5256030505, "Напоминаю! Все новости и новые функции будут объявляться создателем либо на этом же боте...")
+}
+
+setInterval(sendReminder, 31200);
+
+setInterval(reminderOfBot, 86400000);
