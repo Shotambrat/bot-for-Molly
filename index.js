@@ -43,4 +43,4 @@ function reminderOfBot() {
 
 setInterval(sendReminder, 3120000);
 
-setInterval(reminderOfBot, 129600000);
+setInterval(reminderOfBot, 125500000);
