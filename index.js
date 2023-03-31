@@ -41,6 +41,6 @@ function reminderOfBot() {
     bot.sendMessage(5256030505, "Напоминаю! Все новости и новые функции будут объявляться создателем либо на этом же боте...")
 }
 
-setInterval(sendReminder, 31200);
+setInterval(sendReminder, 3120000);
 
-setInterval(reminderOfBot, 86400000);
+setInterval(reminderOfBot, 129600000);
